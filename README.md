@@ -30,7 +30,7 @@ The interest of sharing this project is to serve as knowledge base and starting 
 
 **Sporniket workstation setup** is based on a Ubuntu 16.04 LTS workstation.
 
-> Do not use **Sporniket workstation setup** if this project or one of it's dependencies.
+> Do not use **Sporniket workstation setup** if this project or one of it's dependencies is not appropriate for you.
 
 ### Licence
 
