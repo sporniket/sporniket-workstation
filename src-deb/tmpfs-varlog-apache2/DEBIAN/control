@@ -1,0 +1,9 @@
+Package: tmpfs-varlog-apache2
+Version: 0.0.1
+Section: base
+Priority: optional
+Architecture: all
+Depends: apache2
+Maintainer: David SPORN
+Description: Create log files for apache on startup when /var/log is a tmpfs
+Homepage: http://github.com/sporniket

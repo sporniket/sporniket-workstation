@@ -1,0 +1,9 @@
+Package: tmpfs-varlog-mysql
+Version: 0.0.1
+Section: base
+Priority: optional
+Architecture: all
+Depends: mysql-server
+Maintainer: David SPORN
+Description: Create log files for mysql on startup when /var/log is a tmpfs
+Homepage: http://github.com/sporniket

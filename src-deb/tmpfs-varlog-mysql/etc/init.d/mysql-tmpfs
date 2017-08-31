@@ -1,0 +1,36 @@
+#!/bin/bash
+#
+### BEGIN INIT INFO
+# Provides:          mysql-tmpfs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Required-Start:
+# Required-Stop:
+# Short-Description: Create /var/log/mysql/error.log on tmpfs at startup
+# Description:       Create /var/log/mysql/error.log needed by mysql.
+### END INIT INFO
+
+#
+# main()
+#
+case "${1:-''}" in
+  'start')
+   # create the /var/log/mysql/error.log needed by apache
+   mkdir /var/log/mysql
+   chmod 777 /var/log/mysql
+   touch /var/log/mysql/error.log
+   chmod 666 /var/log/mysql/error.log
+   ;;
+  'stop')
+   ;;
+  'restart')
+   ;;
+  'reload'|'force-reload')
+   ;;
+  'status')
+   ;;
+  *)
+   echo "Usage: $SELF start"
+   exit 1
+   ;;
+esac
