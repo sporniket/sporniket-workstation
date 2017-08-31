@@ -1,0 +1,9 @@
+Package: add-apt-third-parties-repositories
+Version: 0.0.1
+Section: base
+Priority: optional
+Architecture: all
+Depends: software-properties-common, apt
+Maintainer: David SPORN
+Description: Registers keys and repositories to have access to wanted packages.
+Homepage: http://...

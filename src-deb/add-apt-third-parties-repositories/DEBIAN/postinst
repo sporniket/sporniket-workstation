@@ -1,0 +1,18 @@
+#!/bin/bash
+
+### Java
+add-apt-repository ppa:webupd8team/java
+# symlink so that tomcat find the oracle jdk
+ln -s /usr/lib/jvm/java-8-oracle /usr/lib/jvm/jdk-8-oracle-alias
+
+### MongoDB
+apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0C49F3730359A14518585931BC711F9BA15703C6
+add-apt-repository 'deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse'
+
+### Elastic Search
+apt-key adv --recv-keys --keyserver pgp.mit.edu D88E42B4
+add-apt-repository 'deb https://artifacts.elastic.co/packages/5.x/apt stable main'
+
+### Node js
+apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 68576280
+add-apt-repository 'deb https://deb.nodesource.com/node_4.x xenial main'

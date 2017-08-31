@@ -1,0 +1,17 @@
+#!/bin/bash
+
+### Node js
+add-apt-repository --remove 'deb https://deb.nodesource.com/node_4.x xenial main'
+apt-key del 68576280
+
+### Elastic Search
+add-apt-repository --remove 'deb https://artifacts.elastic.co/packages/5.x/apt stable main'
+apt-key del D88E42B4
+
+### MongoDB
+add-apt-repository --remove 'deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse'
+apt-key del 0C49F3730359A14518585931BC711F9BA15703C6
+
+### Java
+rm /usr/lib/jvm/jdk-8-oracle-alias
+add-apt-repository --remove ppa:webupd8team/java
