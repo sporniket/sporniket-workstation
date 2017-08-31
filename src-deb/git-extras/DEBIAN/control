@@ -1,0 +1,9 @@
+Package: git-extras
+Version: 0.0.1
+Section: base
+Priority: optional
+Architecture: all
+Depends: git
+Maintainer: David SPORN
+Description: Install system-wide configuration for git : credential caching, alias 'st', 'blog', 'changelog',... See /etc/gitconfig.
+Homepage: http://...
