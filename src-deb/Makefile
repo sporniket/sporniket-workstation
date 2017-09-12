@@ -1,32 +1,46 @@
-cc=sudo dpkg-deb
-cflags=--build
-
 packages=\
-  add-apt-third-parties-repositories.deb \
-	git-extras.deb \
-	tmpfs-varlog-apache2.deb \
-	tmpfs-varlog-mysql.deb
+	0.done \
+	1.done \
+
 packagesUninstall=$(basename $(packages))
 
 all:$(packages)
 
-add-apt-third-parties-repositories.deb:$(shell find add-apt-third-parties-repositories)
-	$(cc) $(cflags) add-apt-third-parties-repositories
+0.done:$(shell find 0-first-stage)
+	cd 0-first-stage
+	make all
+	cd ..
+	touch 0.done
 
-git-extras.deb:$(shell find git-extras)
-	$(cc) $(cflags) git-extras
-
-tmpfs-varlog-apache2.deb:$(shell find tmpfs-varlog-apache2)
-	$(cc) $(cflags) tmpfs-varlog-apache2
-
-tmpfs-varlog-mysql.deb:$(shell find tmpfs-varlog-mysql)
-	$(cc) $(cflags) tmpfs-varlog-mysql
+1.done:$(shell find 1-second-stage)
+	cd 1-second-stage
+	make all
+	cd ..
+	touch 1.done
 
 clean:
-	sudo rm *.deb
+	rm 0.done
+	cd 0-first-stage
+	make clean
+	cd ..
+	rm 1.done
+	cd 1-second-stage
+	make clean
+	cd ..
 
 install:$(packages)
-	sudo dpkg -i $(packages)
+	cd 0-first-stage
+	make install
+	cd ..
+	sudo apt-get update
+	cd 1-second-stage
+	make install
+	cd ..
 
 remove:$(packages)
-	sudo dpkg -r $(packagesUninstall)
+	cd 1-second-stage
+	make remove
+	cd ..
+	cd 0-first-stage
+	make remove
+	cd ..
