@@ -14,7 +14,7 @@ Content
 ## 1. What is **Sporniket workstation setup**, and when to use it ?
 **Sporniket workstation setup** is a collection of debian packages to build and install to get a typical ubuntu workstation for myself : various software stacks (ide, java, ...), extra configurations (git, scripts, ...).
 
-An additionnal script would be help when starting from a fresh install of the OS.
+An additionnal script would help when starting from a fresh install of the OS.
 
 The interest of bothering to make a debian package is to take care of the uninstall process, i.e. cleaning afterwards.
 
@@ -22,8 +22,9 @@ The interest of sharing this project is to serve as knowledge base and starting 
 
 ### What's new in alpha-01
 
+* an "install all" script.
 * git extras.
-* a first set of supplemental apt repositories
+* a first set of supplemental apt repositories.
 * Initialisation of /var/log subfolder when /var/log is a tmpfs
 
 ## 2. What should you know before using **Sporniket workstation setup** ?
