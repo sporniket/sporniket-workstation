@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Exec=/opt/blender/current/blender
+Name=Blender 3D
+Comment=Open Source 3D creation. Free to use for any purpose, forever.
+Icon=/opt/blender/current/icons/48x48/apps/blender.png

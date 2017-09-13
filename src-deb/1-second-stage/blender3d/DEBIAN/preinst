@@ -1,0 +1,50 @@
+#!/bin/bash
+#
+# Télécharge et installe HornetQ dans /opt
+BASE_URL_BLENDER3D="https://ftp.halifax.rwth-aachen.de/blender/release/Blender2.79/"
+PACKAGE_FILENAME_BLENDER3D="blender-2.79-linux-glibc219-x86_64.tar.bz2"
+PACKAGE_NAME_BLENDER3D=$(basename -s .tar.bz2 $PACKAGE_FILENAME_BLENDER3D)
+
+PATH_TARGET="/opt/blender"
+PATH_CURRENT="$PATH_TARGET/current"
+
+# Prépare l'arborescence maître
+if [ ! -d "$PATH_TARGET" ]; then
+  mkdir -p $PATH_TARGET
+  RESULT=$?
+  if [ ! $RESULT -eq 0 ]; then
+    exit $RESULT
+  fi
+fi
+
+# Télécharge
+cd $PATH_TARGET
+if [ ! -f "$PACKAGE_FILENAME_BLENDER3D" ]; then
+  wget --header="Accept: text/html" --user-agent="Mozilla/5.0 (X11; Linux x86_64; rv:10.0) Gecko/20100101 Firefox/10.0" -O $PACKAGE_FILENAME_BLENDER3D $BASE_URL_BLENDER3D/$PACKAGE_FILENAME_BLENDER3D
+  RESULT=$?
+  if [ ! $RESULT -eq 0 ]; then
+    exit $RESULT
+  fi
+fi
+
+# Décompresse
+tar -xjf $PACKAGE_FILENAME_BLENDER3D
+RESULT=$?
+if [ ! $RESULT -eq 0 ]; then
+  exit $RESULT
+fi
+
+# Crée le lien pour la version courante.
+if [ -f "$PATH_CURRENT" ]; then
+  rm $PATH_CURRENT
+  RESULT=$?
+  if [ ! $RESULT -eq 0 ]; then
+    exit $RESULT
+  fi
+fi
+
+ln -s $PACKAGE_NAME_BLENDER3D $PATH_CURRENT
+RESULT=$?
+if [ ! $RESULT -eq 0 ]; then
+  exit $RESULT
+fi
