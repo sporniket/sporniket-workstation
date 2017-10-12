@@ -1,0 +1,4 @@
+#\!/bin/bash
+
+#retrieve git-prompt
+wget -O /usr/share/git-extras/git-prompt.sh https://github.com/git/git/raw/master/contrib/completion/git-prompt.sh
