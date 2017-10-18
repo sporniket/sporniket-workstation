@@ -27,6 +27,7 @@ if [ ! -f "$PACKAGE_FILENAME_KRITA" ]; then
   if [ ! $RESULT -eq 0 ]; then
     exit $RESULT
   fi
+  chmod 755 $PACKAGE_FILENAME_KRITA
 fi
 
 # Décompresse
