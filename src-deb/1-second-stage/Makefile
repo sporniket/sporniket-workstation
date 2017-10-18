@@ -3,6 +3,8 @@ cflags=--build
 
 packages=\
 	git-extras.deb \
+	krita.deb \
+	blender3d.deb \
 	tmpfs-varlog-apache2.deb \
 	tmpfs-varlog-mysql.deb
 packagesUninstall=$(basename $(packages))
@@ -10,6 +12,12 @@ packagesUninstall=$(basename $(packages))
 all:$(packages)
 
 git-extras.deb:$(shell find git-extras)
+	$(cc) $(cflags) git-extras
+
+krita.deb:$(shell find krita)
+	$(cc) $(cflags) krita
+
+blender3d.deb:$(shell find blender3d)
 	$(cc) $(cflags) git-extras
 
 tmpfs-varlog-apache2.deb:$(shell find tmpfs-varlog-apache2)

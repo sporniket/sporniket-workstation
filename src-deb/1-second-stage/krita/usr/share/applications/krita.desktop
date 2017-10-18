@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Exec=/opt/krita/krita-current
+Name=Krita
+Comment=Professionnal, Free and Open Source digital painting software. Made by artists wanting affordable tools for everyone.
+Icon=/usr/share/applications/krita/krita_48.png
