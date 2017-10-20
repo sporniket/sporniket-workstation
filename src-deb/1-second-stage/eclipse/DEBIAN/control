@@ -1,0 +1,9 @@
+Package: eclipse
+Version: 0.0.1
+Section: base
+Priority: optional
+Architecture: all
+Depends: wget
+Maintainer: David SPORN
+Description: Download eclipse IDE and make it available as an application.
+Homepage: http://...
