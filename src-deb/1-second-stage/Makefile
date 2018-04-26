@@ -3,7 +3,7 @@ cflags=--build
 
 packages=\
 	git-extras.deb \
-	krita.deb \
+	krita-from-download.deb \
 	blender3d.deb \
 	tmpfs-varlog-apache2.deb \
 	tmpfs-varlog-mysql.deb
@@ -14,8 +14,8 @@ all:$(packages)
 git-extras.deb:$(shell find git-extras)
 	$(cc) $(cflags) git-extras
 
-krita.deb:$(shell find krita)
-	$(cc) $(cflags) krita
+krita-from-download.deb:$(shell find krita-from-download)
+	$(cc) $(cflags) krita-from-download
 
 blender3d.deb:$(shell find blender3d)
 	$(cc) $(cflags) git-extras
