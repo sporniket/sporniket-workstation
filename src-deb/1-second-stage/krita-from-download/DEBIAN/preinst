@@ -1,7 +1,7 @@
 #!/bin/bash
 # Krita : https://download.kde.org/stable/krita/3.3.0/krita-3.3.0-x86_64.appimage
 # Télécharge et installe HornetQ dans /opt
-KRITA_VERSION="3.3.1"
+KRITA_VERSION="4.0.1"
 BASE_URL_KRITA="https://download.kde.org/stable/krita/${KRITA_VERSION}"
 PACKAGE_FILENAME_KRITA="krita-${KRITA_VERSION}-x86_64.appimage"
 #PACKAGE_NAME_KRITA=$(basename -s .tar.bz2 $PACKAGE_FILENAME_KRITA)
