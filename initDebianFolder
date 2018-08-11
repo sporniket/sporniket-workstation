@@ -1,0 +1,19 @@
+#!/bin/bash
+#Create control files with appropriate mode
+echo  > control << EOF
+Package:
+Version: 0.0.1
+Section: base
+Priority: optional
+Architecture: all
+Depends:
+Maintainer: David SPORN
+Description: 
+Homepage: http://...
+EOF
+
+echo "#!/bin/bash" > preinst
+cp preinst prerm
+cp preinst postinst
+cp preinst postrm
+chmod +x pre* post*
