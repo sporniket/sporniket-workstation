@@ -2,6 +2,7 @@ cc=sudo dpkg-deb
 cflags=--build
 
 packages=\
+	eclipse.deb \
 	git-extras.deb \
 	krita-from-download.deb \
 	blender3d.deb \
@@ -10,6 +11,9 @@ packages=\
 packagesUninstall=$(basename $(packages))
 
 all:$(packages)
+
+eclipse.deb:$(shell find eclipse)
+	$(cc) $(cflags) eclipse
 
 git-extras.deb:$(shell find git-extras)
 	$(cc) $(cflags) git-extras

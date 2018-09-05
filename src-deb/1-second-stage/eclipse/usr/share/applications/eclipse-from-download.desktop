@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Exec=/opt/eclipse/eclipse
+Name=Eclipse IDE
+Comment=Eclipse IDE
+Icon=/opt/eclipse/eclipse.xpm
