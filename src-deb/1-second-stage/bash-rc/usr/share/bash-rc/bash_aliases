@@ -1,0 +1,16 @@
+#Grant that there is a directory at ~/.bashrc.d/available
+if [ ! -d "~/.bashrc.d/available" ]; then
+  mkdir -p ~/.bashrc.d/available
+fi
+
+#Grant that there is a directory at ~/.bashrc.d/enabled
+if [ ! -d "~/.bashrc.d/enabled" ]; then
+  mkdir -p ~/.bashrc.d/enabled
+fi
+
+#load configs from .bashrc.d
+reload-bashrc () {
+  for rc in $(ls ~/.bashrc.d/enabled); do source ~/.bashrc.d/enabled/$rc ; done
+}
+
+reload-bashrc

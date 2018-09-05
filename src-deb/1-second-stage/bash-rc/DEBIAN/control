@@ -1,0 +1,9 @@
+Package: bash-rc
+Version: 0.0.1
+Section: base
+Priority: optional
+Architecture: all
+Depends: bash
+Maintainer: David SPORN
+Description: Provide a bash alias that source any file in $HOME/.bashrc.d/enabled.
+Homepage: http://...

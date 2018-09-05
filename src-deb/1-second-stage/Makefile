@@ -2,6 +2,7 @@ cc=sudo dpkg-deb
 cflags=--build
 
 packages=\
+	bash-rc.deb \
 	eclipse.deb \
 	git-extras.deb \
 	krita-from-download.deb \
@@ -11,6 +12,9 @@ packages=\
 packagesUninstall=$(basename $(packages))
 
 all:$(packages)
+
+bash-rc.deb:$(shell find bash-rc)
+	$(cc) $(cflags) bash-rc
 
 eclipse.deb:$(shell find eclipse)
 	$(cc) $(cflags) eclipse

@@ -1,0 +1,8 @@
+#\!/bin/bash
+
+#copy bash_aliases in skel for future user creation
+cp /usr/share/bash-rc/bash_aliases /etc/skel/.bash_aliases
+
+# prepare bashrc.d folders
+mkdir -p /etc/skel/.bashrc.d/enabled
+mkdir -p /etc/skel/.bashrc.d/available
