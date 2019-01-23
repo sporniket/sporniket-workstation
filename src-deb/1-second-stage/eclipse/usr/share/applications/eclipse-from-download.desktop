@@ -1,8 +1,14 @@
 [Desktop Entry]
 Version=1.0
+Name=Eclipse IDE
+Comment=The Integrated Development Environment for Java by the Eclipse Foundation
+Exec=/opt/eclipse/eclipse
+Icon=/opt/eclipse/icon.xpm
 Type=Application
 Terminal=false
-Exec=/opt/eclipse/eclipse
-Name=Eclipse IDE
-Comment=Eclipse IDE
-Icon=/opt/eclipse/eclipse.xpm
+StartupNotify=true
+Actions=Clean
+
+[Desktop Action Clean]
+Exec=/opt/eclipse/eclipse -clean
+Name=Clean startup
