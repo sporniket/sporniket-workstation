@@ -1,16 +1,22 @@
+#Export some colored marker for fancy log messages...
+export LOG_TRACE="\e[90mTRACE\e[0m --"
+export LOG_INFO="\e[96mINFO \e[0m --"
+export LOG_OK="\e[92mOK   \e[0m --"
+export LOG_WARN="\e[93mWARN \e[0m --"
+export LOG_ERROR="\e[1;91mERROR\e[0m --"
+export LOG_FATAL="\e[1;101mFATAL\e[0m --"
+
 #Grant that there is a directory at ~/.bashrc.d/available
-if [ ! -d "~/.bashrc.d/available" ]; then
-  mkdir -p ~/.bashrc.d/available
-fi
+[[ ! -d "~/.bashrc.d/available" ]] && mkdir -p ~/.bashrc.d/available
 
 #Grant that there is a directory at ~/.bashrc.d/enabled
-if [ ! -d "~/.bashrc.d/enabled" ]; then
-  mkdir -p ~/.bashrc.d/enabled
-fi
+[[ ! -d "~/.bashrc.d/enabled" ]] && mkdir -p ~/.bashrc.d/enabled
 
 #load configs from .bashrc.d
-reload-bashrc () {
-  for rc in $(ls ~/.bashrc.d/enabled); do source ~/.bashrc.d/enabled/$rc ; done
+reload-bashrc-d () {
+  for rc in $(ls ~/.bashrc.d/enabled); do echo -e "${LOG_INFO} Sourcing $rc..." ; source ~/.bashrc.d/enabled/$rc ; done
+  echo -e "${LOG_OK} Sourced all enabled definitions files."
 }
+export -f reload-bashrc-d
 
-reload-bashrc
+reload-bashrc-d
