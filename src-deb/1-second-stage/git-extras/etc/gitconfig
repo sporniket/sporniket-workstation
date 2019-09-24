@@ -1,7 +1,7 @@
 [push]
 	default = simple
 [core]
-	editor = gedit --standalone --wait
+	editor = gedit --standalone
 	autocrlf = input
 [credential]
 	helper = cache --timeout=36000
