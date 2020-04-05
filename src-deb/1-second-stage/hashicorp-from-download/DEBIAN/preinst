@@ -11,7 +11,7 @@
 # checksums signature : https://releases.hashicorp.com/packer/1.5.5/packer_1.5.5_SHA256SUMS.sig
 # ---------------------
 
-PATH_TARGET="./opt/hashicorp"
+PATH_TARGET="/opt/hashicorp"
 if [[ ! -d "${PATH_TARGET}" ]]; then
   mkdir -p "${PATH_TARGET}"
 fi
