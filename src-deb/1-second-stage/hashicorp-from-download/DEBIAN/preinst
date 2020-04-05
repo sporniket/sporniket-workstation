@@ -1,0 +1,82 @@
+#!/bin/bash
+# ---------------------
+# Vagrant, e.g. for 2.2.7
+# download : https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_linux_amd64.zip
+# checksums : https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_SHA256SUMS
+# checksums signature : https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_SHA256SUMS.sig
+# ---------------------
+# Packer, e.g. for 1.5.5
+# download : https://releases.hashicorp.com/packer/1.5.5/packer_1.5.5_linux_amd64.zip
+# checksums : https://releases.hashicorp.com/packer/1.5.5/packer_1.5.5_SHA256SUMS
+# checksums signature : https://releases.hashicorp.com/packer/1.5.5/packer_1.5.5_SHA256SUMS.sig
+# ---------------------
+
+PATH_TARGET="./opt/hashicorp"
+if [[ ! -d "${PATH_TARGET}" ]]; then
+  mkdir -p "${PATH_TARGET}"
+fi
+cd "${PATH_TARGET}"
+
+
+# get the gpg key if not already there
+# gpg --list-keys 51852D87348FFC4C || gpg --recv-keys 51852D87348FFC4C
+
+# $1 : url
+# $2 : target file (in current folder)
+do-download () {
+  wget --user-agent="Mozilla/5.0 (X11; Linux x86_64; rv:10.0) Gecko/20100101 Firefox/10.0" -O "$2" "$1"
+  RESULT=$?
+  if [ ! $RESULT -eq 0 ]; then
+    exit $RESULT
+  fi
+}
+
+# $1 : url zip
+# $2 : url checksums // TODO
+# $3 : url checksums signature // TODO
+do-download-product () {
+  TARGET_FILE="$(basename "$1")"
+  do-download "$1" "${TARGET_FILE}"
+
+  CHECKSUM_FILE="$(basename "$2")"
+  do-download "$2" "${CHECKSUM_FILE}"
+
+  CHECKSUM_SIG="$(basename "$3")"
+  do-download "$3" "${CHECKSUM_SIG}"
+
+  # TODO check that the gpg key is installed, or install it
+
+  # check the checksums using signature...
+  CHECK_RESULT="$(shasum -a 256 -c "${CHECKSUM_FILE}" | grep "${TARGET_FILE}" | grep "OK" | wc -l)"
+  if [[ 1 -eq "${CHECK_RESULT}" ]]; then
+    echo "Integrity check OK"
+  else
+    echo "Integrity check FAILED"
+    exit -1
+  fi
+
+  unzip -o "${TARGET_FILE}"
+  # cleanup
+  rm "${TARGET_FILE}" "${CHECKSUM_FILE}" "$CHECKSUM_SIG"
+}
+
+# $1 : version
+do-download-packer () {
+  URL_ZIP="https://releases.hashicorp.com/packer/${1}/packer_${1}_linux_amd64.zip"
+  URL_CHECKSUM="https://releases.hashicorp.com/packer/${1}/packer_${1}_SHA256SUMS"
+  URL_SIGN="https://releases.hashicorp.com/packer/${1}/packer_${1}_SHA256SUMS.sig"
+
+  do-download-product "${URL_ZIP}" "${URL_CHECKSUM}" "${URL_SIGN}"
+}
+
+# $1 : version
+do-download-vagrant () {
+  URL_ZIP="https://releases.hashicorp.com/vagrant/${1}/vagrant_${1}_linux_amd64.zip"
+  URL_CHECKSUM="https://releases.hashicorp.com/vagrant/${1}/vagrant_${1}_SHA256SUMS"
+  URL_SIGN="https://releases.hashicorp.com/vagrant/${1}/vagrant_${1}_SHA256SUMS.sig"
+
+  do-download-product "${URL_ZIP}" "${URL_CHECKSUM}" "${URL_SIGN}"
+}
+
+do-download-vagrant "2.2.7"
+do-download-packer "1.5.5"

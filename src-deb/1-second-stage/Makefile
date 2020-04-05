@@ -5,6 +5,7 @@ packages=\
 	bash-rc.deb \
 	eclipse.deb \
 	git-extras.deb \
+	hashicorp-from-download.deb \
 	krita-from-download.deb \
 	blender3d.deb \
 	tmpfs-varlog-apache2.deb \
@@ -21,6 +22,9 @@ eclipse.deb:$(shell find eclipse)
 
 git-extras.deb:$(shell find git-extras)
 	$(cc) $(cflags) git-extras
+
+hashicorp-from-download.deb:$(shell find hashicorp-from-download)
+	$(cc) $(cflags) hashicorp-from-download
 
 krita-from-download.deb:$(shell find krita-from-download)
 	$(cc) $(cflags) krita-from-download

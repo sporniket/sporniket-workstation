@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Nettoyage
+rm -Rf /opt/hashicorp
+exit $?

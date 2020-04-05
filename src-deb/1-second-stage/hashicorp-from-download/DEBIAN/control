@@ -1,0 +1,9 @@
+Package: hashicorp-from-download
+Version: 0.0.1
+Section: base
+Priority: optional
+Architecture: all
+Depends: wget
+Maintainer: David SPORN
+Description: Download hashicorp vagrant and packer and make it available as an application.
+Homepage: http://...
