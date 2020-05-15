@@ -1,0 +1,35 @@
+#!/bin/bash
+# install the use of git prompt into ~/bashrc.d/available and make it enabled as 10-git-prompt
+
+# sanity check
+TARGET_DIR="$HOME/.bashrc.d/available"
+if [ ! -d "${TARGET_DIR}" ]; then
+  echo "Sporniket bash_aliases is not installed"
+  exit 1
+fi
+
+# proceed
+SOURCE="/usr/share/git-extras/bashrc.append"
+TARGET="${TARGET_DIR}/git-extras"
+if [ ! -f "${SOURCE}" ]; then
+  echo -e "${LOG_ERROR} Missing file '${SOURCE}'"
+  exit 1
+fi
+
+if [ -f "${TARGET}" ]; then
+  echo -e "${LOG_WARN} '${TARGET}' already exists, skip copy."
+else
+  cp "${SOURCE}" "${TARGET}"
+fi
+
+TARGET_DIR_ENABLED="$HOME/.bashrc.d/enabled"
+TARGET_ENABLED="${TARGET_DIR_ENABLED}/10-git-extras"
+[ ! -d "${TARGET_DIR_ENABLED}" ] && echo -e "${LOG_INFO} Creating folder ${TARGET_DIR_ENABLED}..." && mkdir -p "${TARGET_DIR_ENABLED}"
+if [ -f "${TARGET_ENABLED}" ]; then
+  echo -e "${LOG_ERROR} '${TARGET_ENABLED}' already exists, skip copy"
+  exit 1
+else
+  ln -s "../available/git-extras" "${TARGET_ENABLED}"
+fi
+
+echo -e "${LOG_OK} Done, call reload-bashrc-d"
