@@ -1,0 +1,8 @@
+#!/bin/bash
+# install bash_aliases by sporniket to current home
+TARGET="$HOME/.bash_aliases"
+if [ ! -f "$TARGET" ]; then
+  echo "Installing bash_aliases by Sporniket"
+  cp /usr/share/bash-rc/bash_aliases "$TARGET"
+  . "$TARGET"
+fi
