@@ -30,7 +30,7 @@ krita-from-download.deb:$(shell find krita-from-download)
 	$(cc) $(cflags) krita-from-download
 
 blender3d.deb:$(shell find blender3d)
-	$(cc) $(cflags) git-extras
+	$(cc) $(cflags) blender3d
 
 tmpfs-varlog-apache2.deb:$(shell find tmpfs-varlog-apache2)
 	$(cc) $(cflags) tmpfs-varlog-apache2
