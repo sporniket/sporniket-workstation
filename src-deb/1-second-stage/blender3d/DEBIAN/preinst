@@ -1,9 +1,9 @@
 #!/bin/bash
 #
 # Télécharge et installe HornetQ dans /opt
-BASE_URL_BLENDER3D="https://ftp.halifax.rwth-aachen.de/blender/release/Blender2.79/"
-PACKAGE_FILENAME_BLENDER3D="blender-2.79-linux-glibc219-x86_64.tar.bz2"
-PACKAGE_NAME_BLENDER3D=$(basename -s .tar.bz2 $PACKAGE_FILENAME_BLENDER3D)
+BASE_URL_BLENDER3D="https://ftp.halifax.rwth-aachen.de/blender/release/Blender4.5/"
+PACKAGE_FILENAME_BLENDER3D="blender-4.5.4-linux-x64.tar.xz"
+PACKAGE_NAME_BLENDER3D=$(basename -s .tar.xz $PACKAGE_FILENAME_BLENDER3D)
 
 PATH_TARGET="/opt/blender"
 PATH_CURRENT="$PATH_TARGET/current"
@@ -28,7 +28,7 @@ if [ ! -f "$PACKAGE_FILENAME_BLENDER3D" ]; then
 fi
 
 # Décompresse
-tar -xjf $PACKAGE_FILENAME_BLENDER3D
+tar -xJf $PACKAGE_FILENAME_BLENDER3D
 RESULT=$?
 if [ ! $RESULT -eq 0 ]; then
   exit $RESULT
