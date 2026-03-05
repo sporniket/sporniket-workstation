@@ -1,2 +1,7 @@
 git
+# --- python ---
+python3-venv
+python3-doc
+python3-pdm
+# ---  ---
 
