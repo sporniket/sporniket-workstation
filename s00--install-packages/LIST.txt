@@ -1,7 +1,16 @@
 git
 # --- python ---
+#
+# language
+#
 python3-venv
 python3-doc
+#
+# tools
+#
 python3-pdm
+black
+python-black-doc
+flake8
 # ---  ---
 
