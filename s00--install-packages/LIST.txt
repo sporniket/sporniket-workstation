@@ -5,6 +5,7 @@ git
 python3-venv
 python3-doc
 python3-pdm
+python3-pkg-resources
 black
 python-black-doc
 flake8
@@ -15,4 +16,10 @@ fontforge
 fontforge-doc
 fontforge-extras
 python3-fontforge
+# ---
+# --- gimp ---
+# ---
+gimp
+gimp-data-extras
+gimp-help-en
 
