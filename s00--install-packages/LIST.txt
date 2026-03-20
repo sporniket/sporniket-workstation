@@ -22,4 +22,7 @@ python3-fontforge
 gimp
 gimp-data-extras
 gimp-help-en
-
+# ---
+# --- containers ---
+# ---
+podman
