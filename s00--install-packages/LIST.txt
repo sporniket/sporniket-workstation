@@ -10,6 +10,13 @@ black
 python-black-doc
 flake8
 # ---
+# --- java ---
+# ---
+default-jdk
+default-jdk-doc
+maven
+maven-cache-cleanup
+# ---
 # --- fontforge ---
 # ---
 fontforge
