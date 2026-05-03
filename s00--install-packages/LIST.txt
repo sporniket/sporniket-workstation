@@ -33,3 +33,28 @@ gimp-help-en
 # --- containers ---
 # ---
 podman
+# ---
+# --- c/c++ ---
+# ---
+build-essential
+#
+# tools for C/C++
+#
+clang
+clang-tidy
+clang-format
+#
+# Language Server Protocol (LSP) implementation for C/C++
+#
+clangd
+#
+# build tool
+#
+cmake
+cmake-doc
+cmake-format
+#
+# a library to write test suites
+#
+libcriterion-dev
+
