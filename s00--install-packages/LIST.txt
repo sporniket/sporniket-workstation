@@ -58,6 +58,13 @@ cmake
 cmake-doc
 cmake-format
 #
+# doxygen
+#
+doxygen
+doxygen-doc
+graphviz
+graphviz-doc
+#
 # a library to write test suites
 #
 libcriterion-dev
