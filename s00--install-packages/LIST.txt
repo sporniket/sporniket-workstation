@@ -68,4 +68,8 @@ graphviz-doc
 # a library to write test suites
 #
 libcriterion-dev
+# ---
+# --- IDE ---
+# ---
+geany
 
