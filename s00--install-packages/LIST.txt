@@ -68,6 +68,7 @@ graphviz-doc
 # a library to write test suites
 #
 libcriterion-dev
+libcatch2-dev
 # ---
 # --- IDE ---
 # ---
